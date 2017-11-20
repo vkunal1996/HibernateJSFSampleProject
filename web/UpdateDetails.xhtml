@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body onload="hiddenPanel.hide()">
+        <center>
+            <ui:composition template="common.xhtml">
+                <ui:define name="contents">
+                    <h:form>
+                            <div id="mainDivision">
+                                <div id="mainHeading">
+                                    <h1 style="font-family:sans-serif;">
+                                        <p:outputLabel id="heading" value="Search Student" style="color:Black; font-size: 48px;"/>
+                                    </h1>
+                                </div>
+                                <div id="content">
+                                        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+                                    <p:panelGrid columns="3">
+                                        <p:outputLabel id="label1" value="Roll Number :"/>
+                                        <p:inputText id="confirm" value="#{updateMyBean.rollNumber}"/>
+                                        <h:commandButton id="Button1" value="Submit" action="#{updateMyBean.updateDetails()}">
+                                            <f:attribute name="rollNumber" value="#{updateMyBean.rollNumber}"/>
+                                        </h:commandButton>
+                                    </p:panelGrid>
+                                </div>
+                            </div>
+                                                                                             
+                    </h:form>
+                </ui:define>
+            </ui:composition>
+        </center>
+    </h:body>
+</html>
+

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body onload="dia.hide()">
+        <center>
+            <ui:composition template="common.xhtml">
+                 <ui:define name="contents">
+                
+            <h:form>
+              <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+                <div id="mainDivision">
+                    <div id="mainHeading">
+                        <h1 style="font-family:sans-serif;">
+                            <p:outputLabel id="heading" value="Student Details" style="color:Black; font-size: 48px;"/>
+                        </h1>
+                    </div>
+                    <div id="formElements">
+                        <p:panelGrid columns="3" style="border-style:hidden !important; background-color: transparent;">
+                            <p:outputLabel id="lbl1" value="RollNumber"/>
+                            <p:inputText id="inp1" value="#{studentDetailsBean.rollNumber}" required="true" requiredMessage="Please Enter the RollNumber"/>
+                            <p:message for="inp1" style="color: red;"/>
+                            <p:outputLabel id="lbl2" value="Student Name"/>
+                            <p:inputText id="inp2" value="#{studentDetailsBean.studentName}" required="true" requiredMessage="Please Enter the Name"/>
+                            <p:message for="inp2" style="color: red;"/>
+                            <p:outputLabel id="lbl3" value="Father's Name"/>
+                            <p:inputText id='inp3' value="#{studentDetailsBean.fatherName}" required="true" requiredMessage="Please Enter the Father's Name"/>
+                            <p:message for="inp3" style="color: red;"/>
+                            <p:outputLabel id="lbl4" value="Mother's Name"/>
+                            <p:inputText id='inp4' value="#{studentDetailsBean.motherName}" required="true" requiredMessage="Please Enter the Mother's Name"/>
+                            <p:message for="inp4" style="color: red;"/>
+                            <p:outputLabel id="lbl5" value="Contact"/>
+                            <p:inputText id="inp5" value="#{studentDetailsBean.contact}" required="true" requiredMessage="Please Enter the Contact Number" validatorMessage="Please Enter Correct 10 Digit Mobile Number">
+                                <f:validateLength minimum="10" maximum="10"/>
+                            </p:inputText>
+                            <p:message for="inp5" style="color: red;"/>
+                            <p:outputLabel id="lbl6" value="Sex"/>
+                            <p:selectOneRadio id="inp6" value="#{studentDetailsBean.sex}" required="true" requiredMessage="Please Specify Your Sex ">
+                                <f:selectItem itemLabel="Male" itemValue="Male"/>
+                                <f:selectItem itemLabel="Female" itemValue="Female"/>
+                            </p:selectOneRadio>
+                            <p:message for="inp6" style="color: red;"/>
+                            <p:outputLabel id="lbl7" value="Address" />
+                            <p:inputText id='inp7' value="#{studentDetailsBean.address}" required="true" requiredMessage="Please Enter Your Address "/>
+                            <p:message for="inp7" style="color: red;"/>
+                            <p:outputLabel id="lbl8" value="Email"/>
+                            <p:inputText id='inp8' value="#{studentDetailsBean.email}" required="true" requiredMessage="Please Enter Your Email " validatorMessage="Please Enter Correct Email Address.">
+                               <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                            </p:inputText>
+                            <p:message for="inp8" style="color: red;"/>
+                        </p:panelGrid><br/>
+                        <p:panelGrid columns='2' style="border-style:hidden !important;">
+                            <h:commandButton id="Button" value="Submit Details" action="#{studentDetailsBean.saveRecord()}"/>
+                        </p:panelGrid>
+                    </div>
+                 </div>
+            </h:form>
+                 </ui:define>
+            </ui:composition>
+        </center>
+    </h:body>
+</html>
+
